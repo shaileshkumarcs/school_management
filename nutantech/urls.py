@@ -20,11 +20,11 @@ from django.contrib import admin
 
 
 
-from mainapp.views import home, HomeView
+from mainapp.views import home, HomeView, HomeTemplateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^home-view/$', HomeView.as_view()),
+    url(r'^$', HomeTemplateView.as_view()),
 
 
 ]
