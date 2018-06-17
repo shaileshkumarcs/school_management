@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms',
+
+    'mainapp',
     'studentapp',
 ]
 
@@ -144,3 +147,20 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT =os.path.join(BASE_DIR, "static_in_pro","media_root")
+
+
+# Custom Django auth settings
+
+AUTH_USER_MODEL = 'mainapp.User'
+
+LOGIN_URL = 'login'
+
+LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+
+LOGOUT_REDIRECT_URL = 'home'
+
+# Third party apps configuration
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

@@ -1,12 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.views.generic import TemplateView
 
 # Create your views here.
 
 class StudentDashboard(TemplateView):
-    template_name = 'dashboard.html'
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return render(request, 'dashboard.html',{})
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(StudentDashboard, self).get_context_data(*args, **kwargs)
-        return context
+        return redirect("/accounts/login")
+
+
+
+# class StudentDashboard(TemplateView):
+#     template_name = 'dashboard.html'
+#
+#     def get_context_data(self, *args, **kwargs):
+#         context = super(StudentDashboard, self).get_context_data(*args, **kwargs)
+#         return context

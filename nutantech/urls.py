@@ -18,13 +18,13 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
-
-
-from mainapp.views import home, HomeView, HomeTemplateView
+from mainapp.views import Home, Dashboard
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', HomeTemplateView.as_view()),
+    url('accounts/', include('django.contrib.auth.urls')),
+    url(r'^$', Home.as_view(), name="home"),
+    url(r'^dashboard/$', Dashboard.as_view(), name="dashboard"),
     url(r'^student/', include('studentapp.urls', namespace='student')),
 ]
 

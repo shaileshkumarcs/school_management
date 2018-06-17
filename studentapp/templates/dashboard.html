@@ -12,16 +12,21 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="">
-        <title>Pathshala - Responsive Education Template</title>
+        <title>High School - Responsive Education Template</title>
 
         <!-- Styles  & Fonts-->
         {% include 'includes/studentdashboard_headcss.html' %}
-
+	<style>
+		.text-h2{
+			color:#ffffff;
+			text-decoration:none;
+		}
+	</style>
     </head>
     <body>
 		<div class="row dashboard-top-nav">
 			<div class="col-sm-3 logo">
-				<h5><i class="fa fa-book"></i>PATHSHALA</h5>
+				<a href="{% url 'home' %}"><h5 class="text-h2"><i class="fa fa-book"></i>High School Karni</h5></a>
 			</div>
 			<div class="col-sm-4 top-search">
 				<div class="search">
@@ -150,7 +155,7 @@
 							</li>
 							<li>
 								<div class="all-notifications">
-									<a href="#">LOGOUT</a>
+									<a href="{% url 'logout' %}">LOGOUT</a>
 								</div>
 							</li>
 						</ul>

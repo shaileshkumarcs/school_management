@@ -1,20 +1,6 @@
-{% load staticfiles %}
-
-<!DOCTYPE html>
-<html>
-<head>
-
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Nutantech Technologies Private Limited">
-        <title>High School Karni</title>
-
-        <!--Main_head_css.html -->
-		{% include 'includes/main_head_css.html' %}
-		<!--End Main_head_css.html -->
-    </head>
-    <body>
+{% extends 'mainbase.html' %}
+{% load static %}
+{% block content %}
 		<!-- Header  -->
 		{% include 'includes/main_header.html' %}
 		<!-- End Header -->
@@ -641,9 +627,4 @@
 			</div>
 		</div>-->
 
-        <!-- All Javascript file include here -->
-		{% include 'includes/main_foot_js.html' %}
-		<!-- End Javascript file -->
-    </body>
-
-</html>
+{% endblock %}
