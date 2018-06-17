@@ -75,3 +75,48 @@
                 </nav>
             </div>
         </div>
+
+<!--Login Modal -->
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <!--<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>-->
+      <div class="modal-body">
+        <div class="row">
+            <div class="modal-heading">
+                <h1>High School Login</h1>
+            </div>
+            <div id="">
+                <div class="login-form-container">
+                    <form method="POST">{% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+                        </div>
+                                                <br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <br/>
+                        <div class="text-center">
+                            <input class="btn btn-success" type="submit" value="submit" name="submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <!--<div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>-->
+    </div>
+  </div>
+</div>
+<!-- -->
