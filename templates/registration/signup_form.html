@@ -1,0 +1,60 @@
+{% extends 'mainbase.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+    .text-h2{
+        text-align:center;
+        font-weight:bold;
+        color:#27AE60;
+    }
+    .loginsection{
+
+        position:fixed;
+        top: 50%;
+        left: 50%;
+        width:50em;
+
+        margin-top: -22em; /*set to a negative number 1/2 of your height*/
+        margin-left: -26em; /*set to a negative number 1/2 of your width*/
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+        opacity: 0.6;
+        border-radius:5px;
+    }
+    .login-form{
+        padding: 10px 10px 20px 15px;
+    }
+</style>
+<div class="section" style="background-image: url('{% static 'img/slider/slide4.jpg' %}');width:100%;height:100%">
+    <div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-12 loginsection">
+
+            <div class="login-form">
+
+                <h2 class="text-h2">Sign up as a {{ user_type }}</h2>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-success">Sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
+

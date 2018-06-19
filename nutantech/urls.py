@@ -18,14 +18,21 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
-from mainapp.views import Home, Dashboard
+from mainapp.views import Home,Dashboard,AdminSignUpView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url('accounts/', include('django.contrib.auth.urls')),
+    url('accounts/admin/', AdminSignUpView.as_view(), name='admin_signup'),
+
+    # For Home Page Redirect and mainapp urls
     url(r'^$', Home.as_view(), name="home"),
     url(r'^dashboard/$', Dashboard.as_view(), name="dashboard"),
+
+    url(r'^mainapp/', include('mainapp.urls', namespace='mainapp')),
     url(r'^student/', include('studentapp.urls', namespace='student')),
+
+
 ]
 
 if settings.DEBUG:
