@@ -7,7 +7,8 @@ from django.views.generic import TemplateView
 class StudentDashboard(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
-            return render(request, 'dashboard.html',{})
+            if request.user.is_superuser:
+                return render(request, 'studentdashboard.html',{})
 
         return redirect("/accounts/login")
 

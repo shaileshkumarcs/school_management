@@ -21,7 +21,7 @@ class Dashboard(TemplateView):
             if request.user.is_superuser:
                 return redirect("student:student-dashboard")
             elif request.user.is_admin:
-                return redirect("admin:admin-dashboard")
+                return redirect("adminapp:admin-dashboard")
         else:
             return redirect("/accounts/login")
 

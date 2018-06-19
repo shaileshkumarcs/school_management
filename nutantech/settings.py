@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
+    'adminmanage',
     'mainapp',
     'studentapp',
 ]

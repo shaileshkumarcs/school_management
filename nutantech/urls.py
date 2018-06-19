@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^$', Home.as_view(), name="home"),
     url(r'^dashboard/$', Dashboard.as_view(), name="dashboard"),
 
+    url(r'^adminapp/', include('adminmanage.urls', namespace='adminapp')),
     url(r'^mainapp/', include('mainapp.urls', namespace='mainapp')),
     url(r'^student/', include('studentapp.urls', namespace='student')),
 
