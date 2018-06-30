@@ -1,8 +1,6 @@
 from django.db import models
-
+from common.models import BaseAbstract
 from mainapp.models import User
-
-# Create your models here.
 
 def upload_location(instance, filename):
     #filebase, extension = filename.split(".")
@@ -10,14 +8,13 @@ def upload_location(instance, filename):
     #extension = filename.split(".")
     return "%s/%s" % (instance.id, filename)
 
-class StudentProfile(models.Model):
+class TeacherProfile(BaseAbstract):
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
         ('T', 'Transgender')
     )
-    user            = models.ForeignKey(User, related_name='student_userid')
-    rollno          = models.IntegerField()
+    user            = models.OneToOneField(User, models.CASCADE, related_name='teacher_userid')
     first_name      = models.CharField(max_length=100,blank=True)
     middle_name     = models.CharField(max_length=100,blank=True)
     last_name       = models.CharField(max_length=100, blank=True)
@@ -33,8 +30,6 @@ class StudentProfile(models.Model):
                               height_field="height_field")
     height_field    = models.IntegerField(default=0)
     width_field     = models.IntegerField(default=0)
-    created_at      = models.DateTimeField(auto_now=False, auto_now_add=True)
-    updated_at      = models.DateTimeField(auto_now=True, auto_now_add=False)
 
     def __str__(self):
         return self.first_name

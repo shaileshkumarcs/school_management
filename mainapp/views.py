@@ -18,6 +18,7 @@ class Home(TemplateView):
 class Dashboard(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated():
+            print(request)
             if request.user.is_superuser:
                 return redirect("student:student-dashboard")
             elif request.user.is_admin:
